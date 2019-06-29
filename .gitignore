@@ -59,3 +59,9 @@ typings/
 
 # next.js build output
 .next
+
+# Ignore data directories
+data/
+
+# Ignore public/media directory
+public/media/
