@@ -61,7 +61,7 @@ typings/
 .next
 
 # Ignore data directories
-data/
+final-frontier-cms/data/
 
 # Ignore public/media directory
-public/media/
+final-frontier-cms/public/media/
