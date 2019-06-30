@@ -1,0 +1,143 @@
+/** index.css
+ * CSS rules for the final frontier CMS app 
+ * 
+ * Place your custom CSS rules in this document 
+ */
+@font-face {
+font-family:'frontier';
+src: url(../assets/TNG_Credits-1.woff) format('woff'), url(../assets/TNG_Credits.ttf) format('truetype');
+font-weight: normal;
+font-style: normal;
+}
+html {
+    font-family: Verdana;
+}
+h1, h2, h3 {
+font-family: frontier;
+}
+.card {
+    background-color: orange;
+    height: 500px;
+    width: 500px;
+    border-radius: 10px;
+    box-shadow: 10px 10px 5px grey;
+}
+.container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-column-gap: 50px;
+}
+@media only screen and (max-width: 490px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+.container .card {
+    margin-bottom: 50px;
+}
+#article {
+    height: 222px;
+    overflow: hidden;
+}
+#article.active {
+    border-radius: 20px;
+    box-shadow: 10px 10px 5px grey;
+    background-color: orange;
+    position: fixed;
+    padding:0;
+    top: 0;
+    left:0;
+    margin-top: 50px;
+    margin-left: 75px;
+    width: 90vw;
+    height: 90vh;
+    overflow: auto;
+}
+#close {
+    position: static;
+}
+#vtext.card {
+    overflow: auto;
+    padding: 5px;
+    height: 270px;
+}
+#atext.card {
+    overflow: auto;
+    padding: 5px;
+    height: 388px;
+}
+#gtext.inactive {
+    overflow: auto;
+    float: right;
+    width: 250px;
+    height: 400px;
+    margin-right: 5px;
+}
+#pics.active {
+    display: grid;
+}
+#gallerybox.inactive {
+    display: flex;
+    justify-content: space-evenly;
+}
+#gallerybox.active {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-row-gap: 50px;
+    border-radius: 20px;
+    box-shadow: 10px 10px 5px grey;
+    position: fixed;
+    background-color: orange;
+    padding:0;
+    top: 0;
+    left:0;
+    margin-top: 80px;
+    margin-left: 75px;
+    width: 90vw;
+    height: 90vh;
+    overflow: auto;
+}
+@media only screen and (max-width: 490px) {
+    #gallerybox.active {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+
+    }
+    div#gtext{order:1;}
+    img#pic1{order:2;}
+    img#pic2{order:3;}
+    img#pic3{order:4;}
+    img#pic4{order:5;}
+    img#pic5{order:6;}
+    img#pic6{order:7;}
+    img#pic7{order:8;}
+    img#pic8{order:9;}
+}
+
+#gallerybox.active .pic{
+    margin-bottom: 50px;
+    max-width: 100%;
+}
+#gtext .active .pic {
+    margin-bottom: 50px;
+}
+
+#workplease.active{
+    border-radius: 20px;
+    box-shadow: 10px 10px 5px grey;
+    position: fixed;
+    background-color: orange;
+    padding:0;
+    top: 0;
+    left:0;
+
+    margin-left: 75px;
+    width: 90vw;
+    height: 90vh;
+    overflow: auto;
+        
+}

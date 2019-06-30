@@ -1,0 +1,20 @@
+{
+  "name": "package",
+  "version": "1.0.0",
+  "description": "npm package for assignment 3",
+  "main": "generate-card-html.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+     "start": "node ./server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sofa3535/WebDesignProject.git"
+  },
+  "author": "Alex Steinert",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sofa3535/WebDesignProject/issues"
+  },
+  "homepage": "https://github.com/Sofa3535/WebDesignProject#readme"
+}
