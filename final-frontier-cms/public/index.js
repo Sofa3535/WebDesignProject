@@ -9,9 +9,13 @@
 function expand_article_box(){
     var close_button = document.getElementById("close");
     var article = document.getElementById("article");
+    var buttonbottom = document.getElementById("buttonbottom");
+    var open_button = document.getElementById("read");
     if(article.className != "active"){
         article.className="active";
+        buttonbottom.className="";
         close_button.style.display="inline";
+        open_button.style.display="none";
     }
 }
 
@@ -19,10 +23,12 @@ function expand_article_box(){
 function close_article_box(){
     var article = document.getElementById("article");
     var close_button = document.getElementById("close");
+    var open_button = document.getElementById("read");
     
     if(article.className =="active"){
-          article.className = ""; 
+          article.className = "card"; 
         close_button.style.display = "none";
+        open_button.style.display = "inline";
     }        
 }
 

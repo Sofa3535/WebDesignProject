@@ -6,7 +6,10 @@
 module.exports = function generateCardHTML(cardData) {
     // TODO: Generate appropriate HTML
     
+    //Parse .JSON type
     var type = cardData.type;
+    
+    //Determine content type
     if (type== "audio") return generateAudioCardHTML(cardData);
     if (type== "article") return generateArticleCardHTML(cardData);
     if (type== "gallery") return generateGalleryCardHTML(cardData);
@@ -21,10 +24,12 @@ module.exports = function generateCardHTML(cardData) {
  */
 function generateAudioCardHTML(cardData) {
     // TODO: Generate appropriate HTML
+    // Parse .JSON data
     var id = cardData.id; 
     var title = cardData.title;
     var description = cardData.description;
     var source = cardData.source;
+    // HTML Snippett
     var html=
         `
         <div class="card" id="audio">              
@@ -33,9 +38,9 @@ function generateAudioCardHTML(cardData) {
                 <h2>${title}</h2>
                 <audio controls><source src="${source}" type="audio/mpeg"></audio>
             </center>        
-                 <div class="card" id="atext">
+
                  <p>${description}</p>
-            </div>
+            
             </div>         
         </div> 
        
@@ -50,15 +55,19 @@ function generateAudioCardHTML(cardData) {
  */
 function generateArticleCardHTML(cardData) {
     // TODO: Generate appropriate HTML
-     
+    // Parse .JSON data
     var id = cardData.id; 
     var title = cardData.title;
     var body = cardData.body;
+    // HTML snippet
     var html=
         `
     
         <div class="card" id ="article">
-
+           <div class="card" id="buttonbottom">                
+            <center>
+                <button onclick="expand_article_box()" type="button" id="read">Read More</button>
+            </center>                
             <div id="${id}">
                 <button  type="button" id="close" onclick="close_article_box()" style="display:none" align="left">&times; Close</button>
                 <center>
@@ -67,9 +76,8 @@ function generateArticleCardHTML(cardData) {
                 <p>${body}</p>
             </div>
             <br>
-            <center>
-                <button onclick="expand_article_box()" type="button" id="read">Read More</button>
-            </center>
+
+            </div>
         </div>
         `
     return html;
@@ -82,12 +90,12 @@ function generateArticleCardHTML(cardData) {
  */
 function generateGalleryCardHTML(cardData) {
     // TODO: Generate appropriate HTML
-    // 
+    // parse .JSON data
     var id = cardData.id;
     var title = cardData.title;
     var description = cardData.description;
     var images = cardData.images;
-    var stuff
+    //HTML snippet
     var html = 
         `
         <div class="card" id="back">
@@ -127,10 +135,12 @@ function generateGalleryCardHTML(cardData) {
  */
 function generateVideoCardHTML(cardData) {
     // TODO: Generate appropriate HTML
+    // Parese .JSON data
     var id = cardData.id; 
     var title = cardData.title;
     var description = cardData.description;
     var source = decodeURIComponent(cardData.source); //Decodes but still won't find path
+    // HTML snippet
     var html = 
         `
         <div class="card" id="video">              
@@ -141,9 +151,9 @@ function generateVideoCardHTML(cardData) {
                       <source src="${source}" type="video/mp4">
                    </video>
             </center>        
-                 <div class="card" id="atext">
+                 
                  <p>${description}</p>
-            </div>
+           
             </div>         
         </div> 
 `

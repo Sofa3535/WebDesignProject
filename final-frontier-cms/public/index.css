@@ -9,35 +9,34 @@ html {
 }
 
 .card {
-    background-color: orange;
+    background-color: #512888;
     height: 500px;
     width: 500px;
     border-radius: 10px;
     box-shadow: 10px 10px 5px grey;
 }
-.container {
+#container {
     display: grid;
     grid-template-columns: auto auto auto;
     grid-column-gap: 50px;
 }
 @media only screen and (max-width: 490px) {
-    .container {
+    #container {
         display: flex;
         flex-direction: column;
         justify-content: center;
     }
 }
-.container .card {
+#container .card {
     margin-bottom: 50px;
 }
 #article {
-    height: 222px;
     overflow: hidden;
 }
 #article.active {
     border-radius: 20px;
     box-shadow: 10px 10px 5px grey;
-    background-color: orange;
+    background-color: #512888;
     position: fixed;
     padding:0;
     top: 0;
@@ -48,6 +47,9 @@ html {
     height: 90vh;
     overflow: auto;
 }
+
+
+
 #close {
     position: static;
 }
@@ -71,7 +73,7 @@ html {
 #pics.active {
     display: grid;
 }
-#gallerybox.inactive {
+#gallerybox.inactive{
     display: flex;
     justify-content: space-evenly;
 }
@@ -82,7 +84,7 @@ html {
     border-radius: 20px;
     box-shadow: 10px 10px 5px grey;
     position: fixed;
-    background-color: orange;
+    background-color: #512888;
     padding:0;
     top: 0;
     left:0;
@@ -123,7 +125,7 @@ html {
     border-radius: 20px;
     box-shadow: 10px 10px 5px grey;
     position: fixed;
-    background-color: orange;
+    background-color: #512888;
     padding:0;
     top: 0;
     left:0;
@@ -133,4 +135,8 @@ html {
     height: 90vh;
     overflow: auto;
         
+}
+#gallerybox.inactive .pic  {
+    width:230px; /* you can use % */
+    height: auto;
 }

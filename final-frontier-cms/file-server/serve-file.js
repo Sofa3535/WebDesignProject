@@ -81,10 +81,12 @@ function createCardHTML(){
       <html>
         <head>
           <title>Assignment 3</title>
-             <link src="index.css" type="text/css" rel="stylesheet">
+             <link href="index.css" type="text/css" rel="stylesheet">
         <head>
         <body>
+        <div id="container">
         ${all}
+        </div>
           <script type="text/javascript" src="index.js"></script>
         </body>
       <html>

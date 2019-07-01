@@ -35,10 +35,12 @@ module.exports = function handleRequest(req, res) {
     
     // Serve the requested resource
     if(stats.isFile()) {
+        console.log(filePath, "is file")
       serveFile(filePath, res, function(err){
         if(err) serveError(err, 500, "Server Error", res);
       });
     } else if(stats.isDirectory()) {
+        console.log(filePath, "is directory")
       serveIndex(filePath, res, function(err){
         if(err) serveError(err, 500, "Server Error", res);
       });
