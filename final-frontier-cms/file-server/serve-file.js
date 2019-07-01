@@ -22,20 +22,19 @@ module.exports = function serveFile(filePath, res, callback) {
   // Read the file asynchronously
   fs.readFile(filePath, function(err, body){
     if(err) return callback(err);
-    
+    if(filePath == "public/index.html")
+    // call the sendHTMl to get HTMl and send to page
     sendHTML(res,callback);
-
-      //Commented these out for this assignment because they were throwing an error
-      //"cant set header after it's already been set"
+    else{
     // Set the Content-Length
-    //res.setHeader("Content-Length", body.length);
+    res.setHeader("Content-Length", body.length);
     
     // Set the Content-Type
-    //res.setHeader("Content-Type", determineContentType(filePath));
+    res.setHeader("Content-Type", determineContentType(filePath));
     
     // Serve the file data
-    //res.end(body);
-    
+    res.end(body);
+    }
   });
 }
 
@@ -71,31 +70,25 @@ function sendHTML(res, callback){
  * @returns the html as a string
  */
 function createCardHTML(){   
+    //html to send to index.html
+    var all = card.map(function(card){
+            return generateCardHTML(card);
+               }).join("");
     
+   //html to send to index.html
     var html = `
       <!DOCTYPE html>
       <html>
         <head>
-          <title>Practice Audio</title>
-            <link rel="stylesheet" type="text/css" href="public/index.css">
+          <title>Assignment 3</title>
+             <link src="index.css" type="text/css" rel="stylesheet">
         <head>
         <body>
-          ${generateCardHTML(card[0])}
-        ${generateCardHTML(card[1])}
-        ${generateCardHTML(card[2])}
-        ${generateCardHTML(card[3])}
-        ${generateCardHTML(card[4])}
-        ${generateCardHTML(card[5])}
-        <script src="index.js"></script>
+        ${all}
+          <script type="text/javascript" src="index.js"></script>
         </body>
       <html>
 `
     return html;
 }
 
-// function serveCardIndex(res, callback){
-//     var html = createCardHTML()
-//     res.setHeader("Content-Length", html.length);
-//     res.setHeader("Content-Type", "text/html");
-//     res.end(html);
-//     }

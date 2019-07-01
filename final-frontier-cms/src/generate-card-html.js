@@ -31,7 +31,7 @@ function generateAudioCardHTML(cardData) {
             <div id="${id}">
             <center>
                 <h2>${title}</h2>
-                <audio controls><source src="public/${source}" type="audio/mpeg"></audio>
+                <audio controls><source src="${source}" type="audio/mpeg"></audio>
             </center>        
                  <div class="card" id="atext">
                  <p>${description}</p>
@@ -87,6 +87,7 @@ function generateGalleryCardHTML(cardData) {
     var title = cardData.title;
     var description = cardData.description;
     var images = cardData.images;
+    var stuff
     var html = 
         `
         <div class="card" id="back">
@@ -129,15 +130,16 @@ function generateVideoCardHTML(cardData) {
     var id = cardData.id; 
     var title = cardData.title;
     var description = cardData.description;
-    var source = cardData.source;
-    
+    var source = decodeURIComponent(cardData.source); //Decodes but still won't find path
     var html = 
         `
         <div class="card" id="video">              
             <div id="${id}">
             <center>
                 <h2>${title}</h2>
-                <audio controls><source src="/${source}" type="video/mp4"></audio>
+                   <video width="300" controls>
+                      <source src="${source}" type="video/mp4">
+                   </video>
             </center>        
                  <div class="card" id="atext">
                  <p>${description}</p>

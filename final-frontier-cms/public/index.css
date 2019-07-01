@@ -3,18 +3,11 @@
  * 
  * Place your custom CSS rules in this document 
  */
-@font-face {
-font-family:'frontier';
-src: url(../assets/TNG_Credits-1.woff) format('woff'), url(../assets/TNG_Credits.ttf) format('truetype');
-font-weight: normal;
-font-style: normal;
-}
+
 html {
     font-family: Verdana;
 }
-h1, h2, h3 {
-font-family: frontier;
-}
+
 .card {
     background-color: orange;
     height: 500px;
