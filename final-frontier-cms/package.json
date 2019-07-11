@@ -5,7 +5,7 @@
   "main": "generate-card-html.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-     "start": "node ./server.js"
+    "start": "node ./server.js"
   },
   "repository": {
     "type": "git",
@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/Sofa3535/WebDesignProject/issues"
   },
-  "homepage": "https://github.com/Sofa3535/WebDesignProject#readme"
+  "homepage": "https://github.com/Sofa3535/WebDesignProject#readme",
+  "dependencies": {
+    "uuid": "^3.3.2"
+  }
 }

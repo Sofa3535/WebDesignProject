@@ -1,0 +1,43 @@
+function generateVideoHTML(video){
+  return `
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <title>Video</title>
+        </head>
+      <body>
+        <h1>Video</h1>
+        <ul>
+          ${
+            video.map(function(video){
+              return `<li>${video.title}</li>`;
+            }).join("")
+          }
+        </ul>
+     <form method="POST" id="videoForm" action="/upload" enctype="multipart/form-data">
+          <fieldset>
+            <label for="video">Video File:</label>
+            <input name="videoFile" type="file" required>            
+            <input type="submit" value="Add Video">
+          </fieldset>
+          <fieldset>
+              <input type="text" name="title" value="Title..." required>
+          </fieldset>
+        </form>
+        <fieldset>
+          <textarea form="videoForm" rows="4" cols="50" name="description" form="usrform">
+Enter a description...</textarea>
+        </fieldset>
+        Implement Read one item from dataSource.read()?
+      </body>
+    </html>
+  `;
+}
+
+
+  // TODO: Serve audio listing
+  dataSource.read('video', function(err, video) {
+  if(err) throw(err);
+  serve(generateVideoHTML(video));
+});
+

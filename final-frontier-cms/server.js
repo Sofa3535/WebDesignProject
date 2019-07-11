@@ -2,7 +2,7 @@
 
 var http = require('http');
 var handleRequest = require('./file-server/handle-request');
-var port = 3000;
+var port = 3001;
 
 var server = http.createServer(handleRequest);
 

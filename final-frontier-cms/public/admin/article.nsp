@@ -1,0 +1,51 @@
+function generateArticleHTML(article){
+  return `
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <title>Article</title>
+        </head>
+      <body>
+        <h1>Article</h1>
+        <ul>
+          ${
+            article.map(function(article){
+              return `<li>${article.title}</li>`;
+            }).join("")
+          }
+        </ul>
+     <form method="POST" id="articleForm" enctype="multipart/form-data">
+          <fieldset>
+            <label for="article">Article Title:</label>           
+            <input type="text" name="title" value="Title..." required>
+            <input type="submit" value="Add Article">
+          </fieldset>
+        </form>
+        <fieldset>
+          <textarea form="articleForm" rows="4" cols="50" name="description" form="usrform">
+Enter an article...</textarea>
+        </fieldset>
+        Implement Read one item from dataSource.read()?
+      </body>
+    </html>
+  `;
+}
+
+const title = postParams['title'] || queryParams['title'];
+const description = postParams['description'] || queryParams['description'];
+if(title) {
+  // TODO: Create new audio file and serve audio listing
+  dataSource.create('article', {title: title, description: description}, function(err) {
+  if(err) throw(err);
+  dataSource.read('article', function(err, article){
+    if(err) throw(err);
+    serve(generateArticleHTML(article));
+  });
+});
+} else {
+  // TODO: Serve audio listing
+  dataSource.read('article', function(err, article) {
+  if(err) throw(err);
+  serve(generateArticleHTML(article));
+});
+}

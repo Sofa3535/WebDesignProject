@@ -1,0 +1,43 @@
+function generateAudioHTML(audio){
+  return `
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <title>Audio</title>
+        </head>
+      <body>
+        <h1>Audio</h1>
+        <ul>
+          ${
+            audio.map(function(audio){
+              return `<li>${audio.title}</li>`;
+            }).join("")
+          }
+        </ul>
+     <form method="POST" id="audioForm" action="/upload" enctype="multipart/form-data">
+          <fieldset>
+            <label for="audio">Audio File:</label>
+            <input name="audioFile" type="file" required>
+            <input type="submit" value="Add Audio">
+          </fieldset>
+          <fieldset>
+            <input type="text" name="title" value="Title..." required>         
+          </fieldset>
+        </form>
+        <fieldset>
+          <textarea form="audioForm" rows="4" cols="50" name="description" form="usrform">
+Enter a description...
+          </textarea>
+        </fieldset>
+        Implement Read one item from dataSource.read()?
+      </body>
+    </html>
+  `;
+}
+
+
+  // TODO: Serve audio listing
+  dataSource.read('audio', function(err, audio) {
+  if(err) throw(err);
+  serve(generateAudioHTML(audio));
+});

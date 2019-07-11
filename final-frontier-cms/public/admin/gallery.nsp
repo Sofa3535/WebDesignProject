@@ -1,0 +1,43 @@
+function generateGalleryHTML(gallery){
+  return `
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <title>Gallery</title>
+        </head>
+      <body>
+        <h1>Gallery</h1>
+        <ul>
+          ${
+            gallery.map(function(gallery){
+              return `<li>${gallery.title}</li>`;
+            }).join("")
+          }
+        </ul>
+     <form method="POST" id="galleryForm" action="/upload" enctype="multipart/form-data">
+          <fieldset>
+            <label for="gallery">Picture File(s):</label> 
+            <input name="image" type="file" multiple>         
+            <input type="submit" value="Add Pictures">
+          </fieldset>
+          <fieldset>
+          <input type="text" name="title" value="Title..." required>
+          </fieldset>
+        </form>
+        <fieldset>
+          <textarea form="galleryForm" rows="4" cols="50" name="description" form="usrform">
+Enter a description...</textarea>
+        </fieldset>
+        Implement Read one item from dataSource.read()?
+      </body>
+    </html>
+  `;
+}
+
+
+  // TODO: Serve audio listing
+  dataSource.read('gallery', function(err, gallery) {
+  if(err) throw(err);
+  serve(generateGalleryHTML(gallery));
+});
+
